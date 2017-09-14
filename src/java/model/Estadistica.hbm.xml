@@ -1,0 +1,27 @@
+<?xml version="1.0"?>
+<!DOCTYPE hibernate-mapping PUBLIC "-//Hibernate/Hibernate Mapping DTD 3.0//EN"
+"http://www.hibernate.org/dtd/hibernate-mapping-3.0.dtd">
+<!-- Generated 22/08/2017 11:33:34 PM by Hibernate Tools 3.6.0 -->
+<hibernate-mapping>
+    <class name="model.Estadistica" table="estadistica" catalog="smart_crop">
+        <id name="id" type="java.lang.Long">
+            <column name="id" />
+            <generator class="identity" />
+        </id>
+        <many-to-one name="cultivo" class="model.Cultivo" fetch="select">
+            <column name="cultivo_id" not-null="true" />
+        </many-to-one>
+        <many-to-one name="estacion" class="model.Estacion" fetch="select">
+            <column name="estacion_id" not-null="true" />
+        </many-to-one>
+        <property name="ip" type="string">
+            <column name="ip" length="20" not-null="true" />
+        </property>
+        <property name="temperatura" type="int">
+            <column name="temperatura" not-null="true" />
+        </property>
+        <property name="humedad" type="int">
+            <column name="humedad" not-null="true" />
+        </property>
+    </class>
+</hibernate-mapping>

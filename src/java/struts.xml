@@ -1,0 +1,28 @@
+<!DOCTYPE struts PUBLIC
+"-//Apache Software Foundation//DTD Struts Configuration 2.0//EN"
+"http://struts.apache.org/dtds/struts-2.0.dtd">
+
+<struts>
+    <!-- Configuration for the default package. -->
+    <package name="default" extends="struts-default" namespace="/">
+        <action name="login" class="actions.LoginAction" method="login">
+            <result name="success" type="redirectAction">
+                <param name="actionName">estaciones</param>
+                <param name="namespace">/</param>
+            </result>
+            <result name="input">/index.jsp</result>
+        </action>
+        
+        <action name="estaciones" class="actions.EstacionesAction" method="listarEstaciones">
+            <result name="success">/estaciones.jsp</result>
+        </action>
+        
+        <action name="nuevaEstacion" class="actions.NuevaEstacionAction" method="crearNuevaEstacion">
+            <result name="success">/nuevaEstacion.jsp</result>
+        </action>
+        
+        <action name="cultivos" class="actions.CultivosAction" method="listarCultivos">
+            <result name="success">/cultivos.jsp</result>
+        </action>
+    </package>
+</struts>
