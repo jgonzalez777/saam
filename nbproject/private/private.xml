@@ -3,16 +3,20 @@
     <editor-bookmarks xmlns="http://www.netbeans.org/ns/editor-bookmarks/2" lastBookmarkId="0"/>
     <open-files xmlns="http://www.netbeans.org/ns/projectui-open-files/2">
         <group>
-            <file>file:/C:/Users/WinDeveloper/Documents/NetBeansProjects/saam/web/nuevaEstacion.jsp</file>
-            <file>file:/C:/Users/WinDeveloper/Documents/NetBeansProjects/saam/src/java/actions/LoginAction.java</file>
-            <file>file:/C:/Users/WinDeveloper/Documents/NetBeansProjects/saam/src/java/model/Estacion.java</file>
-            <file>file:/C:/Users/WinDeveloper/Documents/NetBeansProjects/saam/web/recursos/header.css</file>
-            <file>file:/C:/Users/WinDeveloper/Documents/NetBeansProjects/saam/src/java/actions/EstacionesAction.java</file>
-            <file>file:/C:/Users/WinDeveloper/Documents/NetBeansProjects/saam/web/estaciones.jsp</file>
-            <file>file:/C:/Users/WinDeveloper/Documents/NetBeansProjects/saam/src/java/model/Usuario.java</file>
-            <file>file:/C:/Users/WinDeveloper/Documents/NetBeansProjects/saam/src/java/properties.properties</file>
-            <file>file:/C:/Users/WinDeveloper/Documents/NetBeansProjects/saam/src/java/daos/EstacionesDAO.java</file>
-            <file>file:/C:/Users/WinDeveloper/Documents/NetBeansProjects/saam/src/java/struts.xml</file>
+            <file>file:/home/jgonzalez/desarrollo_final_saam/saam/src/java/daos/EstacionesDAO.java</file>
+            <file>file:/home/jgonzalez/desarrollo_final_saam/saam/src/java/struts.xml</file>
+            <file>file:/home/jgonzalez/desarrollo_final_saam/saam/src/java/daos/CultivosDAO.java</file>
+            <file>file:/home/jgonzalez/desarrollo_final_saam/saam/web/tiposCultivo.jsp</file>
+            <file>file:/home/jgonzalez/desarrollo_final_saam/saam/src/java/actions/TiposCultivoAction.java</file>
+            <file>file:/home/jgonzalez/desarrollo_final_saam/saam/web/actualizarTipoCultivo.jsp</file>
+            <file>file:/home/jgonzalez/desarrollo_final_saam/saam/web/estaciones.jsp</file>
+            <file>file:/home/jgonzalez/desarrollo_final_saam/saam/web/nuevoTipoCultivo.jsp</file>
+            <file>file:/home/jgonzalez/desarrollo_final_saam/saam/src/java/daos/TiposCultivoDAO.java</file>
+            <file>file:/home/jgonzalez/desarrollo_final_saam/saam/src/java/actions/EstacionesAction.java</file>
+            <file>file:/home/jgonzalez/desarrollo_final_saam/saam/src/java/model/TipoCultivo.java</file>
+            <file>file:/home/jgonzalez/desarrollo_final_saam/saam/src/java/daos/ActuadoresDAO.java</file>
+            <file>file:/home/jgonzalez/desarrollo_final_saam/saam/src/java/daos/SensoresDAO.java</file>
+            <file>file:/home/jgonzalez/desarrollo_final_saam/saam/src/java/daos/UsuarioDAO.java</file>
         </group>
     </open-files>
 </project-private>

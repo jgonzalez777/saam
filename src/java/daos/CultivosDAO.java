@@ -59,7 +59,7 @@ public class CultivosDAO {
             tipoCultivo =  (TipoCultivo) session.get(TipoCultivo.class, idTipoCultivo);
         } catch (Exception e) {
             e.printStackTrace();
-        }        
+        }
         return tipoCultivo;
     }
 }

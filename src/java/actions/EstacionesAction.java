@@ -10,7 +10,7 @@ import model.Usuario;
 public class EstacionesAction extends ActionSupport{
     
     List<Estacion> estaciones = new ArrayList<Estacion>(0);
-    Estacion estacion = new Estacion();
+    Estacion estacion = null;
     
     public String listarEstaciones(){
         EstacionesDAO estDAO = new EstacionesDAO();
@@ -19,29 +19,41 @@ public class EstacionesAction extends ActionSupport{
     }
     
     public String crearEstacion(){
-        if(estacion.getNombre() != null){
+        if(estacion != null){
             estacion.setUsuario(new Usuario(1L));
             EstacionesDAO estDAO = new EstacionesDAO();            
-            estDAO.guardarCultivoDAO(estacion);
+            estDAO.guardarEstacionDAO(estacion);
             return SUCCESS;
         }
         else
             return "captura";
     }
     
-    @Override
-    public void validate() {
-        if(estacion.getNombre() != null && estacion.getIp() != null){
-            if (estacion.getNombre().length() == (0)) 
-                this.addFieldError("estacion.nombre", "Por favor capture un nombre");        
-            if (estacion.getIp().length() == (0)) 
-                this.addFieldError("estacion.ip", "Por favor capture una ip");        
-            if(estacion.getLatitud() == 0)
-                this.addFieldError("estacion.latitud", "Por favor capture una latitud");
-            if(estacion.getLongitud()== 0)
-                this.addFieldError("estacion.longitud", "Por favor capture una longitud");
+    public String actualizarEstacion(){ 
+        EstacionesDAO estDAO = new EstacionesDAO();        
+        if(estacion.getNombre() != null){          
+            Estacion estacionUpdate = null;
+            estacionUpdate = estDAO.obtenerEstacionById(estacion.getId());
+            estacionUpdate.setIp(estacion.getIp());
+            estacionUpdate.setLatitud(estacion.getLatitud());
+            estacionUpdate.setLongitud(estacion.getLongitud());
+            estacionUpdate.setNombre(estacion.getNombre());
+            estDAO.actualizarEstacionDAO(estacionUpdate);
+            return SUCCESS;
         }
+        else{            
+            setEstacion(estDAO.obtenerEstacionById(estacion.getId()));
+            return "captura";
+        }
+    }   
+    
+    public String eliminarEstacion(){
+        EstacionesDAO estDAO = new EstacionesDAO();
+        setEstacion(estDAO.obtenerEstacionById(estacion.getId()));
+        estDAO.eliminarEstacionDAO(estacion);
+        return SUCCESS;
     }
+    
 
     public List<Estacion> getEstaciones() {
         return estaciones;

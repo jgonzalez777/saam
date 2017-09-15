@@ -17,12 +17,12 @@
                 $(".label").css("font-size","1em");
                 $(".error").hide();
                 
-                $("#crearEstacion").on("click", function(){
+                $("#actualizarEstacionBtn").on("click", function(){
                     $(".error").hide();
                     var validacion = true;
                     validacion = validar();
                     if(validacion)
-                        $("#nuevaEstacion").submit();
+                        $("#actualizarEstacion").submit();
                 });
                 
                 function validar(){
@@ -61,8 +61,9 @@
             </ul> 
         </nav>
         <article>
-            <center><h3 id="titulo">Nueva Estación</h3></center>
-            <s:form id="nuevaEstacion" action="nuevaEstacion"  method="POST" namespace="/">
+            <center><h3 id="titulo">Actualizar Estación</h3></center>
+            <s:form id="actualizarEstacion" action="editarEstacion"  method="POST" namespace="/">
+                <s:hidden id="idEstacion" key="estacion.id"/>
                 <table>
                     <tr>    
                         <td colspan="2" class="error" id="nombreError">
@@ -119,7 +120,7 @@
                     <tr>
                         <td colspan="2" >
                             <center>
-                                <button type="button" class="btn btn-success" id="crearEstacion">Crear Estación</button>
+                                <button type="button" class="btn btn-success" id="actualizarEstacionBtn">Actualizar Estación</button>
                                 <button type="button" class="btn btn-danger" onclick="window.location.href='estaciones.action'">Regresar</button>
                             </center>
                         </td>

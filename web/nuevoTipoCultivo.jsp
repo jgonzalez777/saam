@@ -4,7 +4,7 @@
 <html>
     <head>
         <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
-        <title>SAAM -- Mis Estaciones</title>
+        <title>SAAM -- Tipos de Cultivo</title>
         <link href="lib/bootstrap/bootstrap-3.3.7-dist/css/bootstrap.css" rel="stylesheet" type="stylesheet"/>        
         <link rel="stylesheet" type="text/css" href="recursos/header.css"/>  
         <script src="lib/bootstrap/bootstrap-3.3.7-dist/js/bootstrap.min.js"></script> 
@@ -17,30 +17,38 @@
                 $(".label").css("font-size","1em");
                 $(".error").hide();
                 
-                $("#crearEstacion").on("click", function(){
+                $("#crearTipoCultivo").on("click", function(){
                     $(".error").hide();
                     var validacion = true;
                     validacion = validar();
                     if(validacion)
-                        $("#nuevaEstacion").submit();
+                        $("#nuevoTipoCultivo").submit();
                 });
                 
                 function validar(){
                     var validacion = true;
-                    if($("#nombre").val() == ""){
+                    if($("#nombre").val() == "" ){
                         $("#nombreError").show("slow");
                         validacion = false;
                     }
-                    if($("#ip").val() == ""){
-                        $("#ipError").show("slow");
+                    if($("#hMin").val() == "" || isNaN($("#hMin").val())){
+                        $("#hminError").show("slow");
                         validacion = false;
                     }
-                    if($("#longitud").val() == "" || isNaN($("#longitud").val())){
-                        $("#longitudError").show("slow");
+                    if($("#hMax").val() == "" || isNaN($("#hMax").val())){
+                        $("#hmaxError").show("slow");
                         validacion = false;
                     }
-                    if($("#latitud").val() == "" || isNaN($("#latitud").val())){
-                        $("#latitudError").show("slow");
+                    if($("#tMin").val() == "" || isNaN($("#tMin").val())){
+                        $("#tMinError").show("slow");
+                        validacion = false;
+                    }
+                    if($("#tMax").val() == "" || isNaN($("#tMax").val())){
+                        $("#tMaxError").show("slow");
+                        validacion = false;
+                    }
+                    if($("#periodo").val() == "" || isNaN($("#periodo").val())){
+                        $("#periodoError").show("slow");
                         validacion = false;
                     }
                     return validacion;
@@ -61,15 +69,15 @@
             </ul> 
         </nav>
         <article>
-            <center><h3 id="titulo">Nueva Estación</h3></center>
-            <s:form id="nuevaEstacion" action="nuevaEstacion"  method="POST" namespace="/">
+            <center><h3 id="titulo">Nuevo Tipo de Cultivo</h3></center>
+            <s:form id="nuevoTipoCultivo" action="nuevoTipoCultivo"  method="POST" namespace="/">
                 <table>
                     <tr>    
                         <td colspan="2" class="error" id="nombreError">
-                            <p class="bg-warning">Por favor capture el nombre de la estación</p>
+                            <p class="bg-warning">Por favor capture el nombre del tipo de cultivo</p>
                         </td>
                         <td>                            
-                            <s:textfield id="nombre" key="estacion.nombre" label="Nombre estación"/> 
+                            <s:textfield id="nombre" key="tipoCultivo.nombre" label="Nombre del tipo de cultivo"/> 
                         </td>
                     </tr>
                     <tr>
@@ -78,11 +86,11 @@
                         </td>
                     </tr>
                     <tr>
-                        <td colspan="2" class="error" id="ipError">
-                            <p class="bg-warning">Por favor capture la ip de la estación</p>
+                        <td colspan="2" class="error" id="hminError">
+                            <p class="bg-warning">Por favor capture la humedad mínima (sólo números)</p>
                         </td>
                         <td>
-                            <s:textfield id="ip" key="estacion.ip" label="Ip estación"/> 
+                            <s:textfield id="hMin" key="tipoCultivo.humedadMin" label="Humedad mínima (%)"/> 
                         </td>
                     </tr>     
                     <tr>
@@ -91,11 +99,11 @@
                         </td>
                     </tr>
                     <tr> 
-                        <td colspan="2" class="error" id="longitudError">
-                            <p class="bg-warning">Por favor capture el nombre de la longitud en formato número</p>
+                        <td colspan="2" class="error" id="hmaxError">
+                            <p class="bg-warning">Por favor capture la humedad máxima (sólo números)</p>
                         </td>
                         <td>
-                            <s:textfield id="longitud" key="estacion.longitud" label="Ubicación (Lóngitud)"/>
+                            <s:textfield id="hMax" key="tipoCultivo.humedadMax" label="Humedad máxima (%)"/>
                         </td>
                     </tr>
                     <tr>
@@ -104,11 +112,37 @@
                         </td>
                     </tr>
                     <tr>
-                        <td colspan="2" class="error" id="latitudError">
-                            <p class="bg-warning">Por favor capture el nombre de la longitud en formato número</p>
+                        <td colspan="2" class="error" id="tMinError">
+                            <p class="bg-warning">Por favor capture la temperatura mínima (sólo números)</p>
                         </td>
                         <td>
-                            <s:textfield id="latitud" key="estacion.latitud" label="Ubicación (Latitud)"/>
+                            <s:textfield id="tMin" key="tipoCultivo.temperaturaMin" label="Temperatura mínima (°C)"/>
+                        </td>
+                    </tr>
+                    <tr>
+                        <td>
+                            <br>
+                        </td>
+                    </tr>
+                    <tr>
+                        <td colspan="2" class="error" id="tMaxError">
+                            <p class="bg-warning">Por favor capture la temperatura máxima (sólo números)</p>
+                        </td>
+                        <td>
+                            <s:textfield id="tMax" key="tipoCultivo.temperaturaMax" label="Temperatura máxima (°C)"/>
+                        </td>
+                    </tr>
+                    <tr>
+                        <td>
+                            <br>
+                        </td>
+                    </tr>
+                    <tr>
+                        <td colspan="2" class="error" id="periodoError">
+                            <p class="bg-warning">Por favor capture el período de riego (sólo números)</p>
+                        </td>
+                        <td>
+                            <s:textfield id="periodo" key="tipoCultivo.periodoRiego" label="Periodo de riego (Hrs.)"/>
                         </td>
                     </tr>
                     <tr>
@@ -119,8 +153,8 @@
                     <tr>
                         <td colspan="2" >
                             <center>
-                                <button type="button" class="btn btn-success" id="crearEstacion">Crear Estación</button>
-                                <button type="button" class="btn btn-danger" onclick="window.location.href='estaciones.action'">Regresar</button>
+                                <button type="button" class="btn btn-success" id="crearTipoCultivo">Crear Tipo Cultivo</button>
+                                <button type="button" class="btn btn-danger" onclick="window.location.href='tiposcultivo.action'">Regresar</button>
                             </center>
                         </td>
                     </tr>                    

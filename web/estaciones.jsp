@@ -54,15 +54,15 @@
                                         <span class="glyphicon glyphicon-grain"></span> 
                                     </button>
                                 </s:form>
-                                <s:form action="editarCultivo" method="post" namespace="/">
-                                    <input type="hidden" value="<s:property value="id"/>" name="estacionId"/>
+                                <s:form action="editarEstacion" method="post" namespace="/">
+                                    <input type="hidden" value="<s:property value="id"/>" name="estacion.id"/>
                                     <button type="button" class="btn btn-default btn-sm" onclick="submit();" title="Editar Estacion">
                                         <span class="glyphicon glyphicon-cog"></span> 
                                     </button>
                                 </s:form>
                                 <s:form action="eliminarEstacion" method="post" namespace="/">
-                                    <input type="hidden" value="<s:property value="id"/>" name="estacionId"/>
-                                    <button type="button" class="btn btn-default btn-sm" onclick="submit();" title="Eliminar estación">
+                                    <input type="hidden" value="<s:property value="id"/>" name="estacion.id"/>
+                                    <button type="button" class="btn btn-default btn-sm" onclick="if(confirm('¿Desea eliminar la estación?')){submit()};" title="Eliminar estación">
                                         <span class="glyphicon glyphicon-trash"></span> 
                                     </button>
                                 </s:form>

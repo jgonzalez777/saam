@@ -24,8 +24,51 @@ public class TiposCultivoDAO {
             System.out.println("tiposCultivo: " + tiposCultivo.size());
         } catch (Exception e) {
             e.printStackTrace();
+            
         }
         return tiposCultivo;
     }
     
+    public TipoCultivo obtenerTipoCultivoByIdDAO(Long idTipoCultivo){
+        TipoCultivo tipoCultivo = null;        
+        try {
+            org.hibernate.Transaction tx = session.beginTransaction();
+            tipoCultivo =  (TipoCultivo) session.get(TipoCultivo.class, idTipoCultivo);
+        } catch (Exception e) {
+            e.printStackTrace();
+        }
+        return tipoCultivo;
+    }
+    
+    public void guardarTipoCultivoDAO(TipoCultivo tipoCultivo){
+        try{
+            org.hibernate.Transaction tx = session.beginTransaction();
+            session.save(tipoCultivo);
+            tx.commit();
+        }
+        catch(Exception e){
+            e.printStackTrace();
+        }
+    } 
+    
+    public void actualizarTipoCultivoDAO(TipoCultivo tipoCultivo){
+        try{
+            org.hibernate.Transaction tx = session.beginTransaction();
+            session.update(tipoCultivo);
+            tx.commit();
+        }
+        catch(Exception e){
+            e.printStackTrace();
+        }
+    }    
+    
+    public void eliminarTipoCultivoDAO(TipoCultivo tipoCultivo){
+        try{
+            org.hibernate.Transaction tx = session.beginTransaction();
+            session.delete(tipoCultivo);
+            tx.commit();
+        }catch(Exception e){
+            e.printStackTrace();
+        }
+    }
 }

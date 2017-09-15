@@ -21,7 +21,7 @@
         <nav>
             <ul>
                 <li><s:a action="estaciones">Mis Estaciones</s:a></li>
-                <li><s:a action="nuevaEstacion">Nuevo  tipo de cultivo</s:a></li>                
+                <li><s:a action="nuevoTipoCultivo">Nuevo  tipo de cultivo</s:a></li>                
                     <li style="float:right"><a class="active" href="#about">admin</a></li>
                     <li style="float:right"><a href="#contact">Logout</a></li>
                 </ul> 
@@ -39,27 +39,29 @@
                         <th>Temperatura mínima (°C)</th>
                         <th>Temperatura máxima (°C)</th>
                         <th>Periódo de riego (hrs)</th>
+                        <th>Acciones</th>
                     </tr>
                 </thead>                    
                 <tbody> 
                     <s:iterator value="tiposCultivo">
                         <tr>
                             <td><s:property value="id"/></td>
+                            <td><s:property value="nombre"/></td>
                             <td><s:property value="humedadMin"/></td>
                             <td><s:property value="humedadMax"/></td>
                             <td><s:property value="temperaturaMin"/></td>
                             <td><s:property value="temperaturaMax"/></td>
                             <td><s:property value="periodoRiego"/></td>
                             <td>                                
-                                <s:form action="editarTipoCultivo" method="post" namespace="/">
-                                    <input type="hidden" value="<s:property value="id"/>" name="tipoCultivoId"/>
+                                <s:form action="actualizarTipoCultivo" method="post" namespace="/">
+                                    <input type="hidden" value="<s:property value="id"/>" name="tipoCultivo.id"/>
                                     <button type="button" class="btn btn-default btn-sm" onclick="submit();" title="Editar Tipo Cultivo">
                                         <span class="glyphicon glyphicon-cog"></span> 
                                     </button>
                                 </s:form>
                                 <s:form action="eliminarTipoCultivo" method="post" namespace="/">
-                                    <input type="hidden" value="<s:property value="id"/>" name="tipoCultivoId"/>
-                                    <button type="button" class="btn btn-default btn-sm" onclick="submit();" title="Eliminar TipoCultivo">
+                                    <input type="hidden" value="<s:property value="id"/>" name="tipoCultivo.id"/>
+                                    <button type="button" class="btn btn-default btn-sm" onclick="if(confirm('¿Desea eliminar el tipo de cultivo?')){submit()};" title="Eliminar TipoCultivo">
                                         <span class="glyphicon glyphicon-trash"></span> 
                                     </button>
                                 </s:form>

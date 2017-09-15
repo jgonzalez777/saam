@@ -4,7 +4,6 @@ import java.util.ArrayList;
 import java.util.List;
 import model.Estacion;
 import model.HibernateUtil;
-import model.Usuario;
 import org.hibernate.Query;
 import org.hibernate.Session;
 
@@ -25,7 +24,7 @@ public class EstacionesDAO {
             System.out.println("estaciones: " + estaciones.size());
         } catch (Exception e) {
             e.printStackTrace();
-        }
+        }        
         return estaciones;
     }
     
@@ -36,11 +35,11 @@ public class EstacionesDAO {
             estacion =  (Estacion) session.get(Estacion.class, idEstacion);
         } catch (Exception e) {
             e.printStackTrace();
-        }        
+        }
         return estacion;
     }
     
-    public void guardarCultivoDAO(Estacion estacion){
+    public void guardarEstacionDAO(Estacion estacion){
         try{
             org.hibernate.Transaction tx = session.beginTransaction();
             session.save(estacion);
@@ -50,4 +49,25 @@ public class EstacionesDAO {
             e.printStackTrace();
         }
     }    
+    
+    public void actualizarEstacionDAO(Estacion estacion){
+        try{
+            org.hibernate.Transaction tx = session.beginTransaction();
+            session.update(estacion);
+            tx.commit();
+        }
+        catch(Exception e){
+            e.printStackTrace();
+        }
+    }
+    
+    public void eliminarEstacionDAO(Estacion estacion){
+        try{
+            org.hibernate.Transaction tx = session.beginTransaction();
+            session.delete(estacion);
+            tx.commit();
+        }catch(Exception e){
+            e.printStackTrace();
+        }
+    }
 }
