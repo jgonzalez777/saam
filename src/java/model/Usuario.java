@@ -1,5 +1,5 @@
 package model;
-// Generated 22/08/2017 11:33:32 PM by Hibernate Tools 3.6.0
+// Generated 14/09/2017 04:33:27 PM by Hibernate Tools 3.6.0
 
 
 import java.util.HashSet;
@@ -17,36 +17,35 @@ public class Usuario  implements java.io.Serializable {
      private String correo;
      private long celular;
      private String nombre;
-     private String APaterno;
-     private String AMaterno;
-     private Set<Estacion> estacions = new HashSet<Estacion>(0);
-     private Set<Alertas> alertases = new HashSet<Alertas>(0);
-     private Set<Estacion> estacions_1 = new HashSet<Estacion>(0);
+     private String paterno;
+     private String materno;
+     private Set<Estacion> estacions = new HashSet<Estacion>(0);     
 
     public Usuario() {
     }
 
-	
-    public Usuario(String username, String password, String correo, long celular, String nombre, String APaterno, String AMaterno) {
+    public Usuario(Long id) {
+        this.id = id;
+    }
+    
+    public Usuario(String username, String password, String correo, long celular, String nombre, String paterno, String materno) {
         this.username = username;
         this.password = password;
         this.correo = correo;
         this.celular = celular;
         this.nombre = nombre;
-        this.APaterno = APaterno;
-        this.AMaterno = AMaterno;
+        this.paterno = paterno;
+        this.materno = materno;
     }
-    public Usuario(String username, String password, String correo, long celular, String nombre, String APaterno, String AMaterno, Set<Estacion> estacions, Set<Alertas> alertases, Set<Estacion> estacions_1) {
+    public Usuario(String username, String password, String correo, long celular, String nombre, String paterno, String materno, Set<Estacion> estacions) {
        this.username = username;
        this.password = password;
        this.correo = correo;
        this.celular = celular;
        this.nombre = nombre;
-       this.APaterno = APaterno;
-       this.AMaterno = AMaterno;
-       this.estacions = estacions;
-       this.alertases = alertases;
-       this.estacions_1 = estacions_1;
+       this.paterno = paterno;
+       this.materno = materno;
+       this.estacions = estacions;       
     }
    
     public Long getId() {
@@ -91,19 +90,19 @@ public class Usuario  implements java.io.Serializable {
     public void setNombre(String nombre) {
         this.nombre = nombre;
     }
-    public String getAPaterno() {
-        return this.APaterno;
+    public String getPaterno() {
+        return this.paterno;
     }
     
-    public void setAPaterno(String APaterno) {
-        this.APaterno = APaterno;
+    public void setPaterno(String paterno) {
+        this.paterno = paterno;
     }
-    public String getAMaterno() {
-        return this.AMaterno;
+    public String getMaterno() {
+        return this.materno;
     }
     
-    public void setAMaterno(String AMaterno) {
-        this.AMaterno = AMaterno;
+    public void setMaterno(String materno) {
+        this.materno = materno;
     }
     public Set<Estacion> getEstacions() {
         return this.estacions;
@@ -111,25 +110,7 @@ public class Usuario  implements java.io.Serializable {
     
     public void setEstacions(Set<Estacion> estacions) {
         this.estacions = estacions;
-    }
-    public Set<Alertas> getAlertases() {
-        return this.alertases;
-    }
-    
-    public void setAlertases(Set<Alertas> alertases) {
-        this.alertases = alertases;
-    }
-    public Set<Estacion> getEstacions_1() {
-        return this.estacions_1;
-    }
-    
-    public void setEstacions_1(Set<Estacion> estacions_1) {
-        this.estacions_1 = estacions_1;
-    }
-
-
-
-
+    }    
 }
 
 

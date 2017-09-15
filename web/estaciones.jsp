@@ -21,6 +21,7 @@
         <nav>
             <ul>
                 <li><s:a action="nuevaEstacion">Nueva Estación</s:a></li>                 
+                <li><s:a action="tiposcultivo">Tipos de Cultivo</s:a></li>
                 <li style="float:right"><a class="active" href="#about">admin</a></li>
                 <li style="float:right"><a href="#contact">Logout</a></li>
             </ul> 

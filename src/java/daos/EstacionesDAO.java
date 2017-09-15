@@ -40,4 +40,14 @@ public class EstacionesDAO {
         return estacion;
     }
     
+    public void guardarCultivoDAO(Estacion estacion){
+        try{
+            org.hibernate.Transaction tx = session.beginTransaction();
+            session.save(estacion);
+            tx.commit();
+        }
+        catch(Exception e){
+            e.printStackTrace();
+        }
+    }    
 }

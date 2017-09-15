@@ -1,5 +1,5 @@
 package model;
-// Generated 22/08/2017 11:33:32 PM by Hibernate Tools 3.6.0
+// Generated 14/09/2017 04:33:27 PM by Hibernate Tools 3.6.0
 
 
 import java.util.Date;
@@ -11,7 +11,7 @@ public class Alertas  implements java.io.Serializable {
 
 
      private Long id;
-     private Usuario usuario;
+     private Cultivo cultivo;
      private boolean leido;
      private String contenido;
      private Date fechaCreacion;
@@ -20,8 +20,8 @@ public class Alertas  implements java.io.Serializable {
     public Alertas() {
     }
 
-    public Alertas(Usuario usuario, boolean leido, String contenido, Date fechaCreacion, Date fechaLeido) {
-       this.usuario = usuario;
+    public Alertas(Cultivo cultivo, boolean leido, String contenido, Date fechaCreacion, Date fechaLeido) {
+       this.cultivo = cultivo;
        this.leido = leido;
        this.contenido = contenido;
        this.fechaCreacion = fechaCreacion;
@@ -35,12 +35,12 @@ public class Alertas  implements java.io.Serializable {
     public void setId(Long id) {
         this.id = id;
     }
-    public Usuario getUsuario() {
-        return this.usuario;
+    public Cultivo getCultivo() {
+        return this.cultivo;
     }
     
-    public void setUsuario(Usuario usuario) {
-        this.usuario = usuario;
+    public void setCultivo(Cultivo cultivo) {
+        this.cultivo = cultivo;
     }
     public boolean isLeido() {
         return this.leido;

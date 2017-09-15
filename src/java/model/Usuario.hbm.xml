@@ -1,7 +1,7 @@
 <?xml version="1.0"?>
 <!DOCTYPE hibernate-mapping PUBLIC "-//Hibernate/Hibernate Mapping DTD 3.0//EN"
 "http://www.hibernate.org/dtd/hibernate-mapping-3.0.dtd">
-<!-- Generated 22/08/2017 11:33:34 PM by Hibernate Tools 3.6.0 -->
+<!-- Generated 14/09/2017 04:33:28 PM by Hibernate Tools 3.6.0 -->
 <hibernate-mapping>
     <class name="model.Usuario" table="usuario" catalog="smart_crop">
         <id name="id" type="java.lang.Long">
@@ -23,29 +23,17 @@
         <property name="nombre" type="string">
             <column name="nombre" length="200" not-null="true" />
         </property>
-        <property name="APaterno" type="string">
-            <column name="a_paterno" length="200" not-null="true" />
+        <property name="paterno" type="string">
+            <column name="paterno" length="200" not-null="true" />
         </property>
-        <property name="AMaterno" type="string">
-            <column name="a_materno" length="200" not-null="true" />
+        <property name="materno" type="string">
+            <column name="materno" length="200" not-null="true" />
         </property>
         <set name="estacions" table="estacion" inverse="true" lazy="true" fetch="select">
             <key>
                 <column name="userid" not-null="true" />
             </key>
             <one-to-many class="model.Estacion" />
-        </set>
-        <set name="alertases" table="alertas" inverse="true" lazy="true" fetch="select">
-            <key>
-                <column name="usuario_id" not-null="true" />
-            </key>
-            <one-to-many class="model.Alertas" />
-        </set>
-        <set name="estacions_1" table="estacion" inverse="true" lazy="true" fetch="select">
-            <key>
-                <column name="userid" not-null="true" />
-            </key>
-            <one-to-many class="model.Estacion" />
-        </set>
+        </set>        
     </class>
 </hibernate-mapping>

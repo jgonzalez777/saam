@@ -1,5 +1,5 @@
 package model;
-// Generated 22/08/2017 11:33:32 PM by Hibernate Tools 3.6.0
+// Generated 14/09/2017 04:33:27 PM by Hibernate Tools 3.6.0
 
 
 import java.util.HashSet;
@@ -15,6 +15,7 @@ public class Cultivo  implements java.io.Serializable {
      private TipoCultivo tipoCultivo;
      private Estacion estacion;
      private Set<Estadistica> estadisticas = new HashSet<Estadistica>(0);
+     private Set<Alertas> alertases = new HashSet<Alertas>(0);
      private Set<CatalogoSensor> catalogoSensors = new HashSet<CatalogoSensor>(0);
      private Set<CatalogoActuador> catalogoActuadors = new HashSet<CatalogoActuador>(0);
 
@@ -25,12 +26,12 @@ public class Cultivo  implements java.io.Serializable {
     public Cultivo(TipoCultivo tipoCultivo, Estacion estacion) {
         this.tipoCultivo = tipoCultivo;
         this.estacion = estacion;
-
     }
-    public Cultivo(TipoCultivo tipoCultivo, Estacion estacion, Set<Estadistica> estadisticas, Set<CatalogoSensor> catalogoSensors, Set<CatalogoActuador> catalogoActuadors) {
+    public Cultivo(TipoCultivo tipoCultivo, Estacion estacion, Set<Estadistica> estadisticas, Set<Alertas> alertases, Set<CatalogoSensor> catalogoSensors, Set<CatalogoActuador> catalogoActuadors) {
        this.tipoCultivo = tipoCultivo;
        this.estacion = estacion;
        this.estadisticas = estadisticas;
+       this.alertases = alertases;
        this.catalogoSensors = catalogoSensors;
        this.catalogoActuadors = catalogoActuadors;
     }
@@ -62,6 +63,13 @@ public class Cultivo  implements java.io.Serializable {
     
     public void setEstadisticas(Set<Estadistica> estadisticas) {
         this.estadisticas = estadisticas;
+    }
+    public Set<Alertas> getAlertases() {
+        return this.alertases;
+    }
+    
+    public void setAlertases(Set<Alertas> alertases) {
+        this.alertases = alertases;
     }
     public Set<CatalogoSensor> getCatalogoSensors() {
         return this.catalogoSensors;

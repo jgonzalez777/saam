@@ -14,15 +14,23 @@
         </action>
         
         <action name="estaciones" class="actions.EstacionesAction" method="listarEstaciones">
-            <result name="success">/estaciones.jsp</result>
+            <result name="success">/estaciones.jsp</result>            
         </action>
         
-        <action name="nuevaEstacion" class="actions.NuevaEstacionAction" method="crearNuevaEstacion">
-            <result name="success">/nuevaEstacion.jsp</result>
+        <action name="nuevaEstacion" class="actions.EstacionesAction" method="crearEstacion">
+            <result name="captura">/nuevaEstacion.jsp</result>
+            <result name="success" type="redirectAction">
+                <param name="actionName">estaciones</param>
+                <param name="namespace">/</param>
+            </result>
         </action>
         
         <action name="cultivos" class="actions.CultivosAction" method="listarCultivos">
             <result name="success">/cultivos.jsp</result>
+        </action>
+        
+        <action name="tiposcultivo" class="actions.TiposCultivoAction" method="listarTiposCultivo">
+            <result name="success">/tiposCultivo.jsp</result>
         </action>
     </package>
 </struts>

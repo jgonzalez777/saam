@@ -1,5 +1,5 @@
 package model;
-// Generated 22/08/2017 11:33:32 PM by Hibernate Tools 3.6.0
+// Generated 14/09/2017 04:33:27 PM by Hibernate Tools 3.6.0
 
 
 import java.util.HashSet;
@@ -17,9 +17,7 @@ public class Estacion  implements java.io.Serializable {
      private String nombre;
      private float latitud;
      private float longitud;
-     private Set<Cultivo> cultivos = new HashSet<Cultivo>(0);
-     private Set<Cultivo> cultivos_1 = new HashSet<Cultivo>(0);
-     private Set<Estadistica> estadisticas = new HashSet<Estadistica>(0);
+     private Set<Cultivo> cultivos = new HashSet<Cultivo>(0);     
 
     public Estacion() {
     }
@@ -32,15 +30,13 @@ public class Estacion  implements java.io.Serializable {
         this.latitud = latitud;
         this.longitud = longitud;
     }
-    public Estacion(Usuario usuario, String ip, String nombre, float latitud, float longitud, Set<Cultivo> cultivos, Set<Cultivo> cultivos_1, Set<Estadistica> estadisticas) {
+    public Estacion(Usuario usuario, String ip, String nombre, float latitud, float longitud, Set<Cultivo> cultivos) {
        this.usuario = usuario;
        this.ip = ip;
        this.nombre = nombre;
        this.latitud = latitud;
        this.longitud = longitud;
-       this.cultivos = cultivos;
-       this.cultivos_1 = cultivos_1;
-       this.estadisticas = estadisticas;
+       this.cultivos = cultivos;       
     }
    
     public Long getId() {
@@ -92,24 +88,6 @@ public class Estacion  implements java.io.Serializable {
     public void setCultivos(Set<Cultivo> cultivos) {
         this.cultivos = cultivos;
     }
-    public Set<Cultivo> getCultivos_1() {
-        return this.cultivos_1;
-    }
-    
-    public void setCultivos_1(Set<Cultivo> cultivos_1) {
-        this.cultivos_1 = cultivos_1;
-    }
-    public Set<Estadistica> getEstadisticas() {
-        return this.estadisticas;
-    }
-    
-    public void setEstadisticas(Set<Estadistica> estadisticas) {
-        this.estadisticas = estadisticas;
-    }
-
-
-
-
 }
 
 
